@@ -1,5 +1,4 @@
 import { articles, getFeaturedArticles, getCategories } from "@/lib/articles";
-import { siteConfig } from "@/lib/config";
 import HomePage from "@/components/HomePage";
 
 export default function Home() {

@@ -71,7 +71,7 @@ export const articles: Article[] = [
     slug: "ai-blogging-case-study",
     title: "AI Blogging Case Study: How I Made $3,000/Month in 6 Months",
     description: "A detailed case study of building a profitable blog using AI tools. Exact strategy, tools, and revenue breakdown.",
-    category: "Case Study",
+    category: "Case-Study",
     tags: ["blogging", "case-study", "passive-income"],
     date: "2026-06-15",
     author: "AI Tools Reviews Team",
@@ -104,7 +104,7 @@ export const articles: Article[] = [
     slug: "ai-content-site-success-stories",
     title: "5 AI Content Site Success Stories That Will Inspire You",
     description: "Real people building real income with AI content sites. Detailed breakdowns of their strategies and results.",
-    category: "Case Study",
+    category: "Case-Study",
     tags: ["case-study", "ai-content", "success-stories"],
     date: "2026-06-08",
     author: "AI Tools Reviews Team",
@@ -332,6 +332,17 @@ export const articles: Article[] = [
     featured: false,
   },
 ];
+
+/** Convert category name to URL-safe slug */
+export function categorySlug(cat: string): string {
+  return cat.toLowerCase().replace(/\s+/g, "-");
+}
+
+/** Find category by slug (handles hyphens ↔ spaces) */
+export function getCategoryBySlug(slug: string): string | undefined {
+  const categories = getCategories();
+  return categories.find((c) => categorySlug(c) === slug);
+}
 
 export function getArticleBySlug(slug: string): Article | undefined {
   return articles.find((a) => a.slug === slug);

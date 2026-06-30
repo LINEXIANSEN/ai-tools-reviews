@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { articles, getCategories } from "@/lib/articles";
+import { articles, getCategories, categorySlug } from "@/lib/articles";
 import { siteConfig } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const categoryEntries: MetadataRoute.Sitemap = getCategories().map((cat) => ({
-    url: `${siteConfig.url}/category/${cat.toLowerCase()}`,
+    url: `${siteConfig.url}/category/${categorySlug(cat)}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
@@ -26,5 +26,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...baseEntries, ...categoryEntries, ...articleEntries];
+  const legalEntries: MetadataRoute.Sitemap = [
+    { url: `${siteConfig.url}/privacy`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.3 },
+    { url: `${siteConfig.url}/terms`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.3 },
+    { url: `${siteConfig.url}/affiliate-disclosure`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.3 },
+  ];
+
+  return [...baseEntries, ...categoryEntries, ...articleEntries, ...legalEntries];
 }
