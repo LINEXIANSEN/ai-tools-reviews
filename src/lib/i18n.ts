@@ -9,7 +9,7 @@ export const translations = {
     "nav.search": "Search articles...",
 
     // Hero
-    "hero.title.find": "Find the",
+    "hero.title.find": "Find the ",
     "hero.title.best": "Best AI Tools",
     "hero.title.needs": "for Your Needs",
     "hero.description":
@@ -93,7 +93,7 @@ export const translations = {
     "nav.search": "搜索文章...",
 
     // Hero
-    "hero.title.find": "找到最适合你的",
+    "hero.title.find": "找到最适合你的 ",
     "hero.title.best": "AI 工具",
     "hero.title.needs": "",
     "hero.description":
