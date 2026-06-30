@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { articles, getCategories, getArticlesByCategory } from "@/lib/articles";
+import { getCategories, getArticlesByCategory, categorySlug, getCategoryBySlug } from "@/lib/articles";
 import { siteConfig } from "@/lib/config";
 import CategoryPageClient from "@/components/CategoryPageClient";
 
 export function generateStaticParams() {
   return getCategories().map((cat) => ({
-    category: cat.toLowerCase(),
+    category: categorySlug(cat),
   }));
 }
 
@@ -16,7 +16,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
-  const cat = getCategories().find((c) => c.toLowerCase() === category);
+  const cat = getCategoryBySlug(category);
   if (!cat) return {};
 
   return {
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { category } = await params;
-  const cat = getCategories().find((c) => c.toLowerCase() === category);
+  const cat = getCategoryBySlug(category);
   if (!cat) notFound();
 
   const categoryArticles = getArticlesByCategory(cat);
