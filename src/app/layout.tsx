@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     creator: "@aitoolsreviews",
   },
   verification: {
-    google: "google1e696030590f6d15",
+    google: "XBeWqoWHvderTdbTL4llsdfJWqZ8sVXT6Qq6ZJp_1ow",
   },
   robots: {
     index: true,
