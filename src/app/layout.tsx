@@ -4,6 +4,10 @@ import Link from "next/link";
 import "./globals.css";
 import { siteConfig } from "@/lib/config";
 import { getCategories } from "@/lib/articles";
+import { LanguageProvider } from "@/context/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import HeaderNav from "@/components/HeaderNav";
+import FooterContent from "@/components/FooterContent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,12 +25,23 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["AI tools", "AI reviews", "AI writing tools", "ChatGPT alternatives", "AI for business", "best AI tools 2026"],
+  keywords: [
+    "AI tools",
+    "AI reviews",
+    "AI writing tools",
+    "ChatGPT alternatives",
+    "AI for business",
+    "best AI tools 2026",
+    "AI工具",
+    "AI评测",
+    "AI写作工具",
+  ],
   authors: [{ name: "AI Tools Reviews Team" }],
   creator: "AI Tools Reviews",
   openGraph: {
     type: "website",
     locale: "en_US",
+    alternateLocale: "zh_CN",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -67,65 +82,38 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Header */}
-        <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
-          <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-foreground hover:text-accent transition-colors">
-              🤖 {siteConfig.name}
-            </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              {categories.slice(0, 6).map((cat) => (
-                <Link
-                  key={cat}
-                  href={`/category/${cat.toLowerCase()}`}
-                  className="text-muted hover:text-foreground transition-colors"
-                >
-                  {cat}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </header>
-
-        {/* Main */}
-        <main className="flex-1">{children}</main>
-
-        {/* Footer */}
-        <footer className="border-t border-border bg-background">
-          <div className="mx-auto max-w-6xl px-4 py-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="font-bold text-lg mb-3">🤖 {siteConfig.name}</h3>
-                <p className="text-muted text-sm">
-                  {siteConfig.description}
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-3">Categories</h4>
-                <ul className="space-y-2 text-sm text-muted">
-                  {categories.map((cat) => (
-                    <li key={cat}>
-                      <Link href={`/category/${cat.toLowerCase()}`} className="hover:text-foreground transition-colors">
-                        {cat}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-3">Legal</h4>
-                <ul className="space-y-2 text-sm text-muted">
-                  <li><Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
-                  <li><Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
-                  <li><Link href="/affiliate-disclosure" className="hover:text-foreground transition-colors">Affiliate Disclosure</Link></li>
-                </ul>
+        <LanguageProvider>
+          {/* Header */}
+          <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+            <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+              <Link
+                href="/"
+                className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-accent transition-colors group"
+              >
+                <span className="text-2xl group-hover:scale-110 transition-transform">
+                  🤖
+                </span>
+                <span className="bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent">
+                  {siteConfig.name}
+                </span>
+              </Link>
+              <div className="flex items-center gap-3">
+                <HeaderNav categories={categories} />
+                <LanguageSwitcher />
               </div>
             </div>
-            <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted">
-              © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </header>
+
+          {/* Main */}
+          <main className="flex-1">{children}</main>
+
+          {/* Footer */}
+          <footer className="border-t border-border bg-gradient-to-b from-background to-accent/5">
+            <div className="mx-auto max-w-6xl px-4 py-12">
+              <FooterContent categories={categories} />
             </div>
-          </div>
-        </footer>
+          </footer>
+        </LanguageProvider>
       </body>
     </html>
   );
