@@ -15,7 +15,7 @@ export default function NotFoundClient() {
         404
       </div>
       <h1
-        className="text-2xl font-semibold tracking-tight mb-3 text-ink"
+        className="text-2xl font-semibold tracking-tight mb-3 text-[var(--ink)]"
         style={{ fontFamily: "var(--font-space-grotesk)" }}
       >
         {t("common.notFound")}

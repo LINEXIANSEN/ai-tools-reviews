@@ -26,7 +26,7 @@ export default function CategoryPageClient({
           </span>
         </nav>
         <h1
-          className="text-3xl md:text-4xl font-semibold tracking-tight mb-3 text-ink"
+          className="text-3xl md:text-4xl font-semibold tracking-tight mb-3 text-[var(--ink)]"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {t(`cat.${cat}` as any) || cat} {t("category.tools")}
@@ -43,7 +43,7 @@ export default function CategoryPageClient({
           <Link
             key={article.slug}
             href={`/blog/${article.slug}`}
-            className="group flex flex-col rounded-xl border border-border bg-white p-6
+            className="group flex flex-col rounded-xl border border-border bg-[var(--bg)] p-6
               hover:shadow-[var(--shadow-lg)] hover:border-[var(--muted-soft)]
               transition-all duration-200 hover:-translate-y-0.5"
           >
@@ -56,7 +56,7 @@ export default function CategoryPageClient({
               </span>
             </div>
             <h2
-              className="text-lg font-semibold leading-snug tracking-tight mb-2 text-ink
+              className="text-lg font-semibold leading-snug tracking-tight mb-2 text-[var(--ink)]
                 group-hover:text-accent transition-colors duration-150 line-clamp-2"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >

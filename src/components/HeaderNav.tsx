@@ -40,7 +40,7 @@ export default function HeaderNav({ categories }: { categories: string[] }) {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border md:hidden shadow-lg">
+        <div className="absolute top-full left-0 right-0 backdrop-blur-md border-b border-border md:hidden shadow-lg" style={{backgroundColor: 'color-mix(in srgb, var(--bg) 95%, transparent)'}}>
           <nav className="flex flex-col p-4 gap-1">
             {categories.map((cat) => (
               <Link

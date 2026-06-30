@@ -27,7 +27,7 @@ export default function HomePage({
         </div>
 
         {/* Status badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-white text-xs text-[var(--ink-soft)] mb-8 shadow-[var(--shadow-sm)] animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-[var(--bg)] text-xs text-[var(--ink-soft)] mb-8 shadow-[var(--shadow-sm)] animate-fade-in">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-[ping_1.5s_ease-in-out_infinite]" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
@@ -108,12 +108,12 @@ export default function HomePage({
         ].map((stat) => (
           <div
             key={stat.key}
-            className="text-center p-6 rounded-xl border border-border bg-white
+            className="text-center p-6 rounded-xl border border-border bg-[var(--bg)]
               hover:shadow-[var(--shadow-md)] transition-shadow duration-200"
           >
             <div className="text-3xl mb-2">{stat.icon}</div>
             <div
-              className="text-2xl font-semibold tracking-tight mb-1 text-ink"
+              className="text-2xl font-semibold tracking-tight mb-1 text-[var(--ink)]"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               {stat.value}
@@ -128,7 +128,7 @@ export default function HomePage({
           ============================================================ */}
       <section id="featured" className="mb-24 scroll-mt-20">
         <h2
-          className="text-2xl md:text-3xl font-semibold tracking-tight mb-10 text-ink"
+          className="text-2xl md:text-3xl font-semibold tracking-tight mb-10 text-[var(--ink)]"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {t("section.featured")}
@@ -138,7 +138,7 @@ export default function HomePage({
             <Link
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="group flex flex-col rounded-xl border border-border bg-white p-6
+              className="group flex flex-col rounded-xl border border-border bg-[var(--bg)] p-6
                 hover:shadow-[var(--shadow-lg)] hover:border-[var(--muted-soft)]
                 transition-all duration-200 hover:-translate-y-0.5"
             >
@@ -151,7 +151,7 @@ export default function HomePage({
                 </span>
               </div>
               <h3
-                className="text-lg font-semibold leading-snug tracking-tight mb-2 text-ink
+                className="text-lg font-semibold leading-snug tracking-tight mb-2 text-[var(--ink)]
                   group-hover:text-accent transition-colors duration-150 line-clamp-2"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
@@ -181,7 +181,7 @@ export default function HomePage({
           ============================================================ */}
       <section className="mb-24">
         <h2
-          className="text-2xl md:text-3xl font-semibold tracking-tight mb-10 text-ink"
+          className="text-2xl md:text-3xl font-semibold tracking-tight mb-10 text-[var(--ink)]"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {t("section.latest")}
@@ -191,7 +191,7 @@ export default function HomePage({
             <Link
               key={article.slug}
               href={`/blog/${article.slug}`}
-              className="group flex gap-4 rounded-xl border border-border bg-white p-5
+              className="group flex gap-4 rounded-xl border border-border bg-[var(--bg)] p-5
                 hover:shadow-[var(--shadow-md)] hover:border-[var(--muted-soft)]
                 transition-all duration-200"
             >
@@ -226,7 +226,7 @@ export default function HomePage({
       <section className="mb-24">
         <div className="rounded-2xl border border-border bg-[var(--bg-soft)] p-10 md:p-14 text-center">
           <h2
-            className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-ink"
+            className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-[var(--ink)]"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             {t("section.newsletter")}
@@ -241,7 +241,7 @@ export default function HomePage({
             <input
               type="email"
               placeholder={t("section.newsletter.placeholder")}
-              className="flex-1 px-4 py-3 rounded-xl border border-border bg-white text-ink text-sm
+              className="flex-1 px-4 py-3 rounded-xl border border-border bg-[var(--bg)] text-[var(--ink)] text-sm
                 placeholder:text-[var(--muted)] outline-none
                 focus:border-accent focus:ring-2 focus:ring-accent/10
                 transition-all duration-150"

@@ -17,7 +17,7 @@ export default function FooterContent({ categories }: { categories: string[] }) 
               AI
             </span>
             <span
-              className="font-semibold tracking-tight text-ink"
+              className="font-semibold tracking-tight text-[var(--ink)]"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               {siteConfig.name}
@@ -30,7 +30,7 @@ export default function FooterContent({ categories }: { categories: string[] }) 
 
         {/* Categories */}
         <div>
-          <h4 className="text-sm font-semibold mb-4 text-ink tracking-tight uppercase">
+          <h4 className="text-sm font-semibold mb-4 text-[var(--ink)] tracking-tight uppercase">
             {t("footer.categories")}
           </h4>
           <ul className="space-y-2.5 text-sm text-[var(--ink-soft)]">
@@ -49,7 +49,7 @@ export default function FooterContent({ categories }: { categories: string[] }) 
 
         {/* Popular */}
         <div>
-          <h4 className="text-sm font-semibold mb-4 text-ink tracking-tight uppercase">
+          <h4 className="text-sm font-semibold mb-4 text-[var(--ink)] tracking-tight uppercase">
             {locale === "zh" ? "热门文章" : "Popular"}
           </h4>
           <ul className="space-y-2.5 text-sm text-[var(--ink-soft)]">
@@ -78,7 +78,7 @@ export default function FooterContent({ categories }: { categories: string[] }) 
 
         {/* Legal */}
         <div>
-          <h4 className="text-sm font-semibold mb-4 text-ink tracking-tight uppercase">
+          <h4 className="text-sm font-semibold mb-4 text-[var(--ink)] tracking-tight uppercase">
             {t("footer.legal")}
           </h4>
           <ul className="space-y-2.5 text-sm text-[var(--ink-soft)]">

@@ -44,7 +44,7 @@ export default function BlogPostClient({
           </span>
         </div>
         <h1
-          className="text-3xl sm:text-4xl font-semibold leading-[1.15] tracking-[-.02em] mb-5 text-ink"
+          className="text-3xl sm:text-4xl font-semibold leading-[1.15] tracking-[-.02em] mb-5 text-[var(--ink)]"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           {article.title}
@@ -97,7 +97,7 @@ export default function BlogPostClient({
       {related.length > 0 && (
         <section className="mt-16 pt-8 border-t border-border">
           <h2
-            className="text-xl font-semibold tracking-tight mb-6 text-ink"
+            className="text-xl font-semibold tracking-tight mb-6 text-[var(--ink)]"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             {t("blog.related")}
@@ -107,7 +107,7 @@ export default function BlogPostClient({
               <Link
                 key={rel.slug}
                 href={`/blog/${rel.slug}`}
-                className="group flex items-start gap-4 rounded-xl border border-border bg-white p-5
+                className="group flex items-start gap-4 rounded-xl border border-border bg-[var(--bg)] p-5
                   hover:shadow-[var(--shadow-md)] hover:border-[var(--muted-soft)]
                   transition-all duration-200"
               >

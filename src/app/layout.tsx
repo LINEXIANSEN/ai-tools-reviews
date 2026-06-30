@@ -85,8 +85,9 @@ export default function RootLayout({
 
   return (
     <html
-      lang="zh-CN"
+      lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      style={{colorScheme: 'light dark'}}
     >
       <body
         className="min-h-full flex flex-col"
@@ -96,7 +97,7 @@ export default function RootLayout({
       >
         <LanguageProvider>
           {/* ---- Header ---- */}
-          <header className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-md">
+          <header className="sticky top-0 z-50 border-b border-border backdrop-blur-md" style={{backgroundColor: 'color-mix(in srgb, var(--bg) 85%, transparent)'}}>
             <div className="mx-auto max-w-[1280px] px-6 py-3.5 flex items-center justify-between">
               <a
                 href="/"

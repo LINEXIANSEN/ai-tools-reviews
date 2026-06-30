@@ -2,11 +2,11 @@
 
 /* ============================================================
    Design Tokens — migrated from Upstash design language
-   Only the design system is adopted; brand assets are original.
+   Includes auto dark mode via prefers-color-scheme
    ============================================================ */
 
 :root {
-  /* ---- Color tokens ---- */
+  /* ---- Color tokens (light) ---- */
   --bg:        #ffffff;
   --bg-soft:   #f8faf9;
   --bg-quiet:  #f1f5f3;
@@ -19,7 +19,7 @@
   --accent-soft:  #d1fae5;
   --line:      #e2e8f0;
 
-  /* Legacy aliases (components still reference these) */
+  /* Legacy aliases */
   --background:  var(--bg);
   --foreground:  var(--ink);
   --accent-light: var(--accent-hover);
@@ -30,7 +30,7 @@
   --font-body:    'Inter', var(--font-geist-sans), system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', var(--font-geist-mono), monospace;
 
-  /* ---- Elevation ---- */
+  /* ---- Elevation (light) ---- */
   --shadow-sm:  0 1px 2px 0 rgba(0,0,0,.05);
   --shadow-md:  0 4px 6px -1px rgba(0,0,0,.05), 0 2px 4px -2px rgba(0,0,0,.05);
   --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.07), 0 4px 6px -4px rgba(0,0,0,.05);
@@ -47,6 +47,33 @@
   --t-micro: 150ms;
   --t-small: 220ms;
   --t-med:   300ms;
+}
+
+/* ---- Dark mode tokens ---- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0c1117;
+    --bg-soft:   #151b23;
+    --bg-quiet:  #1a2129;
+    --ink:       #e6edf3;
+    --ink-soft:  #8b949e;
+    --muted:     #6e7681;
+    --muted-soft:#484f58;
+    --accent:    #3fb950;
+    --accent-hover: #56d364;
+    --accent-soft:  rgba(63,185,80,.12);
+    --line:      #30363d;
+
+    --background:  var(--bg);
+    --foreground:  var(--ink);
+    --accent-light: var(--accent-hover);
+    --border:      var(--line);
+
+    --shadow-sm:  0 1px 2px 0 rgba(0,0,0,.3);
+    --shadow-md:  0 4px 6px -1px rgba(0,0,0,.3), 0 2px 4px -2px rgba(0,0,0,.2);
+    --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.35), 0 4px 6px -4px rgba(0,0,0,.2);
+    --shadow-xl:  0 20px 25px -5px rgba(0,0,0,.4), 0 8px 10px -6px rgba(0,0,0,.25);
+  }
 }
 
 @theme inline {
@@ -75,6 +102,7 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  transition: background var(--t-med) var(--ease), color var(--t-med) var(--ease);
 }
 
 ::selection {
@@ -82,7 +110,7 @@ body {
   color: #fff;
 }
 
-/* Scrollbar */
+/* Scrollbar — adapts to dark */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--muted-soft); border-radius: 3px; }
@@ -98,10 +126,6 @@ body {
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: .5; }
 }
 
 .animate-fade-in       { animation: fade-in .5s var(--ease) both; }
@@ -121,9 +145,9 @@ body {
    Prose — article content
    ============================================================ */
 .prose {
-  max-width: 680px;           /* Upstash paragraph-max */
+  max-width: 680px;
   line-height: 1.75;
-  font-size: 1.0625rem;       /* 17px — slightly larger body */
+  font-size: 1.0625rem;
   color: var(--ink-soft);
 }
 .prose h2 {
@@ -146,20 +170,10 @@ body {
   margin-top: 2rem;
   margin-bottom: .75rem;
 }
-.prose p {
-  margin-bottom: 1.25rem;
-}
-.prose ul, .prose ol {
-  margin-bottom: 1.25rem;
-  padding-left: 1.5rem;
-}
-.prose li {
-  margin-bottom: .5rem;
-}
-.prose strong {
-  font-weight: 600;
-  color: var(--ink);
-}
+.prose p { margin-bottom: 1.25rem; }
+.prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+.prose li { margin-bottom: .5rem; }
+.prose strong { font-weight: 600; color: var(--ink); }
 .prose a {
   color: var(--accent);
   text-decoration: underline;
