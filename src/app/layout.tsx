@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     creator: "@aitoolsreviews",
   },
+  verification: {
+    google: "google1e696030590f6d15",
+  },
   robots: {
     index: true,
     follow: true,
