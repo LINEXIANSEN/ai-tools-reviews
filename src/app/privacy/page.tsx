@@ -1,7 +1,12 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
+    <div className="mx-auto max-w-[680px] px-6 py-16">
+      <h1
+        className="text-3xl font-semibold tracking-tight mb-10 text-[var(--ink)]"
+        style={{ fontFamily: "var(--font-space-grotesk)" }}
+      >
+        Privacy Policy
+      </h1>
       <div className="prose">
         <p><em>Last updated: June 30, 2026</em></p>
 

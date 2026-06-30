@@ -219,44 +219,6 @@ export default function HomePage({
           ))}
         </div>
       </section>
-
-      {/* ============================================================
-          NEWSLETTER — Upstash-style minimal CTA section
-          ============================================================ */}
-      <section className="mb-24">
-        <div className="rounded-2xl border border-border bg-[var(--bg-soft)] p-10 md:p-14 text-center">
-          <h2
-            className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-[var(--ink)]"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            {t("section.newsletter")}
-          </h2>
-          <p className="text-[var(--ink-soft)] mb-8 max-w-md mx-auto leading-relaxed">
-            {t("section.newsletter.desc")}
-          </p>
-          <form
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              placeholder={t("section.newsletter.placeholder")}
-              className="flex-1 px-4 py-3 rounded-xl border border-border bg-[var(--bg)] text-[var(--ink)] text-sm
-                placeholder:text-[var(--muted)] outline-none
-                focus:border-accent focus:ring-2 focus:ring-accent/10
-                transition-all duration-150"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-xl bg-accent text-white text-sm font-medium
-                hover:bg-[var(--accent-hover)] shadow-sm hover:shadow-md
-                transition-all duration-150 active:scale-[.97] whitespace-nowrap"
-            >
-              {t("section.newsletter.subscribe")}
-            </button>
-          </form>
-        </div>
-      </section>
     </div>
   );
 }

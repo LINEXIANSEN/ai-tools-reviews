@@ -1,7 +1,12 @@
 export default function AffiliateDisclosure() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-3xl font-bold mb-8">Affiliate Disclosure</h1>
+    <div className="mx-auto max-w-[680px] px-6 py-16">
+      <h1
+        className="text-3xl font-semibold tracking-tight mb-10 text-[var(--ink)]"
+        style={{ fontFamily: "var(--font-space-grotesk)" }}
+      >
+        Affiliate Disclosure
+      </h1>
       <div className="prose">
         <p><em>Last updated: June 30, 2026</em></p>
 
