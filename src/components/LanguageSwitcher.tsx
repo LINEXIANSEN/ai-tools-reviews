@@ -13,13 +13,13 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={toggle}
-      className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium
-        border border-border hover:border-accent hover:text-accent
-        bg-background/50 backdrop-blur-sm transition-all duration-200
-        hover:shadow-sm active:scale-95"
+      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium
+        border border-border text-[var(--ink-soft)]
+        hover:text-ink hover:bg-[var(--bg-soft)]
+        transition-all duration-150 active:scale-[.97]"
       aria-label={locale === "en" ? "Switch to Chinese" : "切换为英文"}
     >
-      <span className="text-base">{locale === "en" ? "🇺🇸" : "🇨🇳"}</span>
+      <span className="text-sm">{locale === "en" ? "🇺🇸" : "🇨🇳"}</span>
       <span>{locale === "en" ? "EN" : "中文"}</span>
     </button>
   );

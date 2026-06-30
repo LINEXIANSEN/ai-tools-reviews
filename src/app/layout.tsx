@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/config";
 import { getCategories } from "@/lib/articles";
@@ -9,14 +8,22 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import HeaderNav from "@/components/HeaderNav";
 import FooterContent from "@/components/FooterContent";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -78,38 +85,42 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="zh-CN"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body
+        className="min-h-full flex flex-col"
+        style={{
+          fontFamily: "var(--font-inter), var(--font-geist-sans), system-ui, sans-serif",
+        }}
+      >
         <LanguageProvider>
-          {/* Header */}
-          <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-            <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-              <Link
+          {/* ---- Header ---- */}
+          <header className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-md">
+            <div className="mx-auto max-w-[1280px] px-6 py-3.5 flex items-center justify-between">
+              <a
                 href="/"
-                className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-accent transition-colors group"
+                className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
-                <span className="text-2xl group-hover:scale-110 transition-transform">
-                  🤖
+                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-accent text-white text-sm font-bold">
+                  AI
                 </span>
-                <span className="bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent">
-                  {siteConfig.name}
-                </span>
-              </Link>
-              <div className="flex items-center gap-3">
+                <span>{siteConfig.name}</span>
+              </a>
+              <div className="flex items-center gap-2">
                 <HeaderNav categories={categories} />
                 <LanguageSwitcher />
               </div>
             </div>
           </header>
 
-          {/* Main */}
+          {/* ---- Main ---- */}
           <main className="flex-1">{children}</main>
 
-          {/* Footer */}
-          <footer className="border-t border-border bg-gradient-to-b from-background to-accent/5">
-            <div className="mx-auto max-w-6xl px-4 py-12">
+          {/* ---- Footer ---- */}
+          <footer className="border-t border-border bg-[var(--bg-soft)]">
+            <div className="mx-auto max-w-[1280px] px-6 py-16">
               <FooterContent categories={categories} />
             </div>
           </footer>

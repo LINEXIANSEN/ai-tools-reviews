@@ -9,6 +9,7 @@ export const translations = {
     "nav.search": "Search articles...",
 
     // Hero
+    "hero.badge": "2026 · Real Tests · No Bias",
     "hero.title.find": "Find the ",
     "hero.title.best": "Best AI Tools",
     "hero.title.needs": "for Your Needs",
@@ -93,6 +94,7 @@ export const translations = {
     "nav.search": "搜索文章...",
 
     // Hero
+    "hero.badge": "2026 · 真实测试 · 无偏见",
     "hero.title.find": "找到最适合你的 ",
     "hero.title.best": "AI 工具",
     "hero.title.needs": "",
